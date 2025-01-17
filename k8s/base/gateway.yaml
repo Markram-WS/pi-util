@@ -4,7 +4,7 @@ metadata:
   name: central-gateway
   namespace: default
 spec:
-  gatewayClassName: central-gateway-class  # Specify the gateway class (replace with your gateway controller's class)
+  gatewayClassName: gc  # Specify the gateway class (replace with your gateway controller's class)
   listeners:
   - name: argocd-listener  # Unique name for this listener
     hostname: argocd.pi
