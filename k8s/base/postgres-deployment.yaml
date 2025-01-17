@@ -34,20 +34,6 @@ spec:
         - name: postgres-storage
           persistentVolumeClaim:
             claimName: postgres-pvc
-# ---
-# apiVersion: v1
-# kind: Service
-# metadata:
-#   name: postgres-service
-#   labels:
-#     app: postgres
-# spec:
-#   type: ClusterIP
-#   ports:
-#     - port: 5432
-#       targetPort: 5432
-#   selector:
-#     app: postgres
 ---
 apiVersion: v1
 kind: PersistentVolumeClaim
@@ -73,8 +59,20 @@ spec:
   - matches:
     - path:
         type: Prefix
-        value: / # เส้นทางที่กำหนดสำหรับ App2
+        value: / 
     backendRefs:
-    - name: postgres-deployment
+    - name: postgres-service  
       namespace: default
-      port: 5432 # Port ภายใน Service ของ App2
+      port: 5432  
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: postgres-service
+  namespace: default
+spec:
+  ports:
+    - port: 5432
+      targetPort: 5432
+  selector:
+    app: postgres  
