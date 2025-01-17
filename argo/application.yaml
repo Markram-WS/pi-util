@@ -14,7 +14,7 @@ spec:
     repoURL: https://github.com/Markram-WS/pi-util.git
     targetRevision: HEAD
   sources: []
-  project: util
+  project: default
 
 
 
