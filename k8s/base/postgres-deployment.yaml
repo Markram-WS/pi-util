@@ -72,7 +72,10 @@ metadata:
   namespace: default
 spec:
   ports:
-    - port: 5432
+    - protocol: TCP
+      port: 5432
       targetPort: 5432
+      nodePort: 30000  
+  type: NodePort
   selector:
     app: postgres  
