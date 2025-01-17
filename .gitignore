@@ -1,0 +1,5 @@
+wg/*
+k3s-config*.yaml
+base/vault-secret.yaml
+.env
+*secret*.yaml
