@@ -58,7 +58,7 @@ spec:
   rules:
   - matches:
     - path:
-        type: Prefix
+        type: PathPrefix  # เปลี่ยนจาก 'Prefix' เป็น 'PathPrefix'
         value: /
     backendRefs:
     - name: postgres-service
