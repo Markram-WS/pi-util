@@ -1,16 +1,16 @@
-apiVersion: gateway.networking.k8s.io/v1beta1
+apiVersion: gateway.networking.k8s.io/v1alpha2
 kind: Gateway
 metadata:
   name: central-gateway
   namespace: default
 spec:
   listeners:
-  - hostname: argocd.pi         # กำหนด hostname ที่จะรับคำขอ
-    port: 8443                   # พอร์ตที่ Gateway จะฟังคำขอ
-    protocol: HTTP               # โปรโตคอล HTTP (หากใช้ HTTPS ให้ระบุเป็น HTTPS)
-  - hostname: postgres.pi         # กำหนด hostname ที่จะรับคำขอ
-    port: 5432                   # พอร์ตที่ Gateway จะฟังคำขอ
-    protocol: HTTP               # โปรโตคอล HTTP (หากใช้ HTTPS ให้ระบุเป็น HTTPS)
+  - hostname: argocd.pi
+    port: 80
+    protocol: HTTP
+  - hostname: postgres.pi
+    port: 5432
+    protocol: HTTP
 ---
 # apiVersion: gateway.networking.k8s.io/v1beta1
 # kind: HTTPRoute
