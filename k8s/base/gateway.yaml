@@ -9,25 +9,6 @@ spec:
     port: 8443                   # พอร์ตที่ Gateway จะฟังคำขอ
     protocol: HTTP               # โปรโตคอล HTTP (หากใช้ HTTPS ให้ระบุเป็น HTTPS)
 ---
-apiVersion: gateway.networking.k8s.io/v1beta1
-kind: HTTPRoute
-metadata:
-  name: argocd-route
-  namespace: argocd  # namespace ที่ HTTPRoute ถูกสร้าง
-spec:
-  parentRefs:
-  - name: central-gateway       # อ้างอิง Gateway ที่ใช้
-    namespace: default          # ใช้ namespace เดียวกับ Gateway
-  rules:
-  - matches:
-    - path:
-        type: Prefix
-        value: /                 # กำหนด path prefix เช่น `/`
-    backendRefs:
-    - name: argocd-server   # ชื่อของ Service ที่เชื่อมต่อ
-      namespace: argocd             # Namespace ที่ Service ของ ArgoCD ตั้งอยู่
-      port: 443                   # พอร์ตที่ Service ใช้งาน (พอร์ตที่เปิดให้ ArgoCD เข้าถึง)
----
 # apiVersion: gateway.networking.k8s.io/v1beta1
 # kind: HTTPRoute
 # metadata:
@@ -46,3 +27,5 @@ spec:
 #     - name: app2-service
 #       namespace: app2
 #       port: 80 # Port ภายใน Service ของ App2
+
+
