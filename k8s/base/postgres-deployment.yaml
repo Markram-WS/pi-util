@@ -50,7 +50,7 @@ apiVersion: gateway.networking.k8s.io/v1beta1
 kind: HTTPRoute
 metadata:
   name: postgres-route
-  namespace: default
+  namespace: default  # เปลี่ยน namespace ให้ตรงกับที่คุณต้องการ
 spec:
   parentRefs:
   - name: central-gateway
@@ -59,11 +59,11 @@ spec:
   - matches:
     - path:
         type: Prefix
-        value: / 
+        value: /
     backendRefs:
-    - name: postgres-service  
+    - name: postgres-service
       namespace: default
-      port: 5432  
+      port: 5432
 ---
 apiVersion: v1
 kind: Service
