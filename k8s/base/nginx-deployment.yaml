@@ -31,6 +31,7 @@ spec:
     app: nginx
   ports:
     - protocol: TCP
-      port: 80
-      targetPort: 80
-  type: LoadBalancer  
+      port: 80           # พอร์ตที่ให้บริการใน Kubernetes
+      targetPort: 80      # พอร์ตที่ใช้ภายใน Pod
+      nodePort: 30080     # พอร์ตที่เปิดให้เข้าถึงจากภายนอก
+  type: NodePort         # เปลี่ยนเป็น NodePort
