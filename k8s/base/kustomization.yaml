@@ -1,5 +1,2 @@
 resources:
-  # - git-secret.yaml
   - postgres-deployment.yaml
-  - gateway.yaml
-  - nginx-deployment.yaml
